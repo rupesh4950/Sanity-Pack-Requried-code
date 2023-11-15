@@ -2,11 +2,16 @@ package test;
 
 
 
-import org.testng.annotations.Test;
+//import org.testng.annotations.Test;
 public class test1 {
 	
-	@Test
+//	@Test
+	public static void main(Stirng [] args){
+		test1 t=new test1();
+		t.run();
+	}
 	public void run() {
 		System.out.println("runiing");
 	}
 }
+
