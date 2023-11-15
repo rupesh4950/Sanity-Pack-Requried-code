@@ -6,7 +6,7 @@ package test;
 public class test1 {
 	
 //	@Test
-	public static void main(Stirng [] args){
+	public static void main(String [] args){
 		test1 t=new test1();
 		t.run();
 	}
