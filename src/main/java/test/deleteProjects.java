@@ -25,6 +25,8 @@ public class deleteProjects {
 	static String preProdONrempassword="@WASIMakhtar06";
 	static String betaUserEmail="fireflink9@gmail.com";
 	static String betaPassword="Password@123";
+	static String prodSanityEmai="sanityfireflink@gmail.com";
+	static String prodPassword="Sanityfireflink@123";
 	/////////////////////////////////////////////////
 	static String email="";
 	static String password="";
@@ -32,10 +34,35 @@ public class deleteProjects {
 	static String userID="";
 	static String brearer="";
 	public static void main(String[] args) {
+		boolean app=false;
+		boolean beta=true;
+		boolean preprod=false;
+		if(app) {
+			beta=false;
+			preprod=false;
+			baseURL=prodBaseURL;
+			email=prodSanityEmai;
+			password=prodPassword;
+		}
+		if(beta) {
+			app=false;
+			preprod=false;
+			baseURL=betaBaseURL;
+			email=betaUserEmail;
+			password=betaPassword;
+		}
+		if(preprod) {
+			app=false;
+			beta=false;
+			baseURL=onpremBaseURl;
+			email=prProdONprememail;
+			password=preProdONrempassword;
+		}
 		////chandge before executon
-		baseURL=betaBaseURL;
-		email=betaUserEmail;
-		password=betaPassword;
+//		baseURL=prodBaseURL;
+//		email=prodSanityEmai;
+//		password=prodPassword;
+		
 		// to update the barear token and  user id
 		getBaraerToken(email,password);
 		getID();
