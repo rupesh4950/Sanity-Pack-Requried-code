@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-11-15T15:52:37 IST" name="Suite" finished-at="2023-11-15T15:52:37 IST" duration-ms="38">
+  <suite started-at="2023-11-16T11:52:20 IST" name="Default suite" finished-at="2023-11-16T11:52:22 IST" duration-ms="2521">
     <groups>
     </groups>
-    <test started-at="2023-11-15T15:52:37 IST" name="Test" finished-at="2023-11-15T15:52:37 IST" duration-ms="38">
+    <test started-at="2023-11-16T11:52:20 IST" name="Default test" finished-at="2023-11-16T11:52:22 IST" duration-ms="2521">
       <class name="test.test1">
-        <test-method signature="run()[pri:0, instance:test.test1@74751b3]" started-at="2023-11-15T15:52:37 IST" name="run" finished-at="2023-11-15T15:52:37 IST" duration-ms="6" status="PASS">
+        <test-method signature="run()[pri:0, instance:test.test1@58d75e99]" started-at="2023-11-16T11:52:20 IST" name="run" finished-at="2023-11-16T11:52:22 IST" duration-ms="2450" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- run -->
       </class> <!-- test.test1 -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
