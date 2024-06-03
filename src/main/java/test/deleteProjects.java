@@ -1,7 +1,9 @@
 package test;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.*;
+
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -9,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Calendar;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class deleteProjects {
@@ -34,9 +37,12 @@ public class deleteProjects {
 	static String userID="";
 	static String brearer="";
 	public static void main(String[] args) {
-		boolean app=false;
-		boolean beta=true;
+		boolean app=true;
+		boolean beta=false;
 		boolean preprod=false;
+		
+		boolean deleteProject=true;
+		boolean basedONDate=false;
 		if(app) {
 			beta=false;
 			preprod=false;
@@ -68,8 +74,7 @@ public class deleteProjects {
 		getID();
 		System.out.println(brearer);
 		// access contol
-			boolean deleteProject=true;
-			boolean basedONDate=false;
+			
 		//project/optimize/v1/projects/user/USR12990
 		//provide you want comment and give manual date and time
 		DateFormat dateFormat = new SimpleDateFormat("dd");
@@ -93,13 +98,14 @@ public class deleteProjects {
 		Response res = given().auth().oauth2(brearer).get(url);
 		System.out.println("status code "+res.getStatusCode());
 		System.out.println("response time "+res.getTime());
-		System.out.println("/////total obj");
-		System.out.println(res.asString());
-		System.out.println("/////total obj end");
+//		System.out.println("/////total obj");
+//		System.out.println(res.asString());
+//		System.out.println("/////total obj end");
 		String s=res.asString();
 	System.out.println(s.split("responseObject")[1]);
 	String[] t = s.split("responseObject")[1].split("\"project\"");
 	System.out.println(t.length);
+	
 	int deletedCount=0;
 	for(int i=0;i<t.length;i++) {
 		String keyVal[]=t[i].split(",");
@@ -181,6 +187,25 @@ public class deleteProjects {
 		
 	}		
 	
+	}
+
+	private static void getProjectID(String s) {
+		System.out.println(s);
+		JSONObject json=new JSONObject(s);
+		Object valu = json.get("responseObject");
+		JSONArray arr=new JSONArray(valu.toString());
+		// json=new JSONObject(arr);
+		 System.out.println(arr.length());
+		 for(int i=0;i<arr.length();i++) {
+			 JSONObject json1=new JSONObject(arr.get(i).toString());
+			 json1=new JSONObject(json1.get("project").toString());
+			 System.out.println(json1);
+			 System.out.println(json1.get("name"));
+			
+		 }
+		
+		
+		
 	}
 
 	private static String getID() {
